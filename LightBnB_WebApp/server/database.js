@@ -28,7 +28,7 @@ const getUserWithEmail = function(email) {
   //   }
   // }
   // return Promise.resolve(user);
-  console.log("email: ", email);
+  
   return pool.query(`
   SELECT *
   FROM users
@@ -37,7 +37,7 @@ const getUserWithEmail = function(email) {
     .then(res => {
       return res.rows[0];
     })
-    .catch(err => console.error('query error: ', err.stack));
+    .catch(err => console.error('query error: ', err.message));
 
 
 };
@@ -59,7 +59,7 @@ const getUserWithId = function(id) {
     .then(res => {
       return res.rows[0];
     })
-    .catch(err => console.error('query error', err.stack));
+    .catch(err => console.error('query error', err.message));
 
 
 };
@@ -87,7 +87,7 @@ const addUser =  function(user) {
     .then(res => {
       return res.rows[0];
     })
-    .catch(err => console.error('query error', err.stack));
+    .catch(err => console.error('query error', err.message));
 
 
 };
